@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Micron Global Infrastructure Site Dashboard</title>
-    <meta property="og:image" content="https://nocdash.github.io/image.jpg">
-    <link rel="icon" type="image/png" href="https://nocdash.github.io/image.jpg">
+<meta property="og:image" content="image.png">
+
+<!-- Browser tab icon -->
+<link rel="icon" type="image/png" href="image.png">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
     <style>
         :root {
@@ -32,7 +37,26 @@
             --border-color: #2d3748;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
+.custom-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
 
+.tab .custom-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.site-link .custom-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Keep the All Tools tab using Font Awesome */
+.tab i:not(.fa-th-large) {
+    display: none;
+}
         * {
             margin: 0;
             padding: 0;
@@ -365,32 +389,44 @@
             <i class="fas fa-search"></i>
         </div>
 
-        <div class="tabs">
-            <div class="tab active" data-tool="all">
-                <i class="fas fa-th-large"></i>
-                All Tools
-            </div>
-            <div class="tab" data-tool="dnac">
-                <i class="fas fa-network-wired"></i>
-                DNAC
-            </div>
-            <div class="tab" data-tool="cvp">
-                <i class="fas fa-phone-alt"></i>
-                CVP
-            </div>
-            <div class="tab" data-tool="sdwan">
-                <i class="fas fa-wifi"></i>
-                SDWAN
-            </div>
-            <div class="tab" data-tool="wlc">
-                <i class="fas fa-broadcast-tower"></i>
-                WLC
-            </div>
-            <div class="tab" data-tool="splunk">
-                <i class="fas fa-chart-bar"></i>
-                SPLUNK
-            </div>
-        </div>
+    <div class="tabs">
+    <div class="tab active" data-tool="all">
+        <i class="fas fa-th-large"></i>
+        All Tools
+    </div>
+    <div class="tab" data-tool="dnac">
+        <img src="dnac.png" class="custom-icon">
+        DNAC
+    </div>
+    <div class="tab" data-tool="cvp">
+        <img src="cvp.png" class="custom-icon">
+        CVP
+    </div>
+    <div class="tab" data-tool="sdwan">
+        <img src="wan.png" class="custom-icon">
+        SDWAN
+    </div>
+    <div class="tab" data-tool="wlc">
+        <img src="wlc.png" class="custom-icon">
+        WLC
+    </div>
+    <div class="tab" data-tool="splunk">
+        <img src="splunk.png" class="custom-icon">
+        SPLUNK
+    </div>
+    <div class="tab" data-tool="netscout">
+        <img src="nets.png" class="custom-icon">
+        NETSCOUT
+    </div>
+    <div class="tab" data-tool="ise">
+        <img src="ise.png" class="custom-icon">
+        ISE
+    </div>
+    <div class="tab" data-tool="river bed">
+        <img src="river.png" class="custom-icon">
+        RIVERBED
+    </div>
+</div>
 
         <div class="regions" id="regions-container">
             <!-- Regions will be populated by JavaScript -->
@@ -404,103 +440,872 @@
     <script>
         // Sample data structure
         const sitesData = {
-            "USA": [
-                { name: "Allen", code: "US207", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Austin", code: "US977", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Boise", code: "US1", links: { dnac: "https://us1-dnac02/", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Folsom", code: "US781", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Irvine", code: "US1102", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Lehi", code: "US68", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Longmont", code: "US877", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Manassas", code: "US439", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Meridian", code: "US259", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Minneapolis", code: "US334", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Novi", code: "US1088", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "San Diego", code: "US865", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "San Jose", code: "US1090", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Scottsdale", code: "US966", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Seattle", code: "US976", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ],
-            "China": [
-                { name: "Shanghai", code: "CN1087", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Beijing", code: "CN833", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Shenzhen", code: "CN593", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Xian", code: "CN569", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ],
-            "India": [
-                { name: "Bengaluru Cessna", code: "IN1092", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Hyderabad - Phoenix Aquila Incubation", code: "IN1136", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ],
-            "Japan": [
-                { name: "Gotenyama", code: "JP944", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Hashimoto", code: "JP902", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Hiroshima", code: "JP900", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Kamata", code: "JP545", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Narita", code: "JP937", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Osaka", code: "JP578", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Sagamihara", code: "JP960", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Shinagawa", code: "JP1075", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ],
-            "Korea": [
-                { name: "Korea", code: "KR879", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ],
-            "Malaysia": [
-                { name: "Muar", code: "MY804", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Grande", code: "MY1137", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Mini Grande", code: "MY1108", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ],
-            "Singapore": [
-                { name: "Singapore - Fab10N/A", code: "SG624", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Singapore - Fab10W", code: "SG211", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Singapore - MSB", code: "SG209", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ],
-            "Asia/Taiwan": [
-                { name: "Taoyuan- Fab11", code: "TW737", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Taichung-FAB16", code: "TW901", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Taichung-MTB", code: "TW555", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Hsinchu", code: "TW1008", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Taichung-TCP", code: "TW1081", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ],
-            "Equinix DC": [
-                { name: "Equinix FR2", code: "DE1107", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Equinix ML5", code: "DE1109", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Equinix SE2", code: "US1079", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Equinix SG2", code: "SG1082", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Equinix SV5", code: "US1105", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Equinix TY8", code: "JP1113", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ],
-            "France": [
-                { name: "France Paris", code: "FR1133", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ],
-            "Germany": [
-                { name: "Germany", code: "DE921", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Munich - Leopoldstrasse", code: "DE974", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ],
-            "Italy": [
-                { name: "Arzano", code: "IT805", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Avezzano", code: "IT1111", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } },
-                { name: "Vimercate GB1", code: "IT1046", links: { dnac: "#", cvp: "#", sdwan: "#", wlc: "#", splunk: "#" } }
-            ]
-        };
+  
+  "USA": [
+    {
+      "name": "Allen",
+      "code": "US1176",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.118.9.11/"
+      }
+    },
+    {
+      "name": "Austin",
+      "code": "US977",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.114.66.52/"
+      }
+    },
+    {
+      "name": "Boise",
+      "code": "US1",
+      "links": {
+        "dnac": "https://us1-dnac02/",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "https://10.105.170.11/",
+        "netscout": "#",
+        "ise": "https://us1ise/",
+        "river bed1": "https://10.109.66.250/",
+        "river bed2": "https://10.2.32.45/",
+        "river bed3": "https://10.109.66.252/"
+      }
+    },
+    {
+      "name": "Folsom",
+      "code": "US781",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "https://10.102.129.4/",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.102.105.6/"
+      }
+    },
+    {
+      "name": "Hanger",
+      "code": "US598",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Irvine",
+      "code": "US1102",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Longmont",
+      "code": "US877",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc1": "https://10.107.51.129/",
+        "wlc2": "https://10.107.51.130/",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.107.51.181/"
+      }
+    },
+    {
+      "name": "New Longmont",
+      "code": "US1306",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "MTI - Washington DC",
+      "code": "US1207",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Manassas",
+      "code": "US439",
+      "links": {
+        "dnac": "https://us439-dnac01/",
+        "cvp": "https://us439-arista-cvp1/",
+        "sdwan": "#",
+        "splunk": "https://masplunk/",
+        "wlc1": "https://10.110.33.26/",
+        "wlc2": "https://10.110.33.27/",
+        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "ise": "#",
+        "river bed1": "https://10.110.60.198/",
+        "river bed2": "https://10.110.60.199/"
+      }
+    },
+    {
+      "name": "Meridian",
+      "code": "US259",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Minneapolis",
+      "code": "US334",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.113.16.75/"
+      }
+    },
+    {
+      "name": "Novi",
+      "code": "US1088",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.115.5.14/"
+      }
+    },
+    {
+      "name": "San Jose",
+      "code": "US1090",
+      "links": {
+        "dnac": "https://us1090-dnac01/",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "https://10.101.22.132/",
+        "netscout": "#",
+        "ise": "#",
+        "river bed1": "https://10.101.64.54/",
+        "river bed2": "https://10.101.2.50/"
+      }
+    }
+  ],
+  "Mexico": [
+    {
+      "name": "Mexico",
+      "code": "MX1323",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    }
+  ],
+  "China": [
+    {
+      "name": "Shanghai",
+      "code": "CN1087",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Beijing",
+      "code": "CN833",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Shenzhen",
+      "code": "CN593",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.158.68.20/"
+      }
+    },
+    {
+      "name": "Xian",
+      "code": "CN569",
+      "links": {
+        "dnac": "#",
+        "cvp": "https://cn569-b1mr2-cvp1/",
+        "sdwan": "#",
+        "splunk": "https://xasplunk/",
+        "wlc1": "https://10.167.198.11/",
+        "wlc2": "https://10.167.198.12/",
+        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "ise": "https://cn569ise/",
+        "river bed1": "https://10.167.71.116/",
+        "river bed2": "https://10.167.71.117/"
+      }
+    }
+  ],
+  "India": [
+    {
+      "name": "Sanand",
+      "code": "IN1316",
+      "links": {
+        "dnac": "https://in1136-dnac01/",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "https://snsplunk/",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Bengaluru Cessna",
+      "code": "IN1092",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "https://10.71.133.5/",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.71.134.33/"
+      }
+    },
+    {
+      "name": "Hyderabad - Phoenix Aquila Incubation",
+      "code": "IN1136",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc1": "https://10.68.122.1/",
+        "wlc2": "https://10.75.138.12/",
+        "wlc3": "https://10.75.138.13/",
+        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "ise": "#",
+        "river bed": "#"
+      }
+    }
+  ],
+  "Japan": [
+    {
+      "name": "Kanagawa DC",
+      "code": "JP1312",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc1": "https://10.165.2.8/",
+        "wlc2": "https://10.165.2.7/",
+        "netscout": "#",
+        "ise": "#",
+        "river bed1": "https://10.165.0.45/",
+        "river bed2": "https://10.165.0.46/"
+      }
+    },
+    {
+      "name": "Hashimoto",
+      "code": "JP902",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed1": "https://172.18.188.4/",
+        "river bed2": "https://172.18.188.7/"
+      }
+    },
+    {
+      "name": "Hiroshima",
+      "code": "JP900",
+      "links": {
+        "dnac": "https://jp900-dnac01/",
+        "cvp": "https://jp900-ba1mr1-cvp1/",
+        "sdwan": "#",
+        "splunk": "https://hisplunk/",
+        "wlc1": "https://10.168.25.6/",
+        "wlc2": "https://10.168.25.11/",
+        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "ise": "https://jp900ise/",
+        "river bed1": "https://172.16.116.12/",
+        "river bed2": "https://10.168.232.72/"
+      }
+    },
+    {
+      "name": "Kamata",
+      "code": "JP545",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Narita",
+      "code": "JP937",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Osaka",
+      "code": "JP578",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.162.65.5/"
+      }
+    },
+    {
+      "name": "Sagamihara",
+      "code": "JP960",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Shinagawa",
+      "code": "JP1075",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.163.240.20/"
+      }
+    }
+  ],
+  "Korea": [
+    {
+      "name": "Korea",
+      "code": "KR879",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    }
+  ],
+  "Malaysia": [
+    {
+      "name": "Muar",
+      "code": "MY804",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "https://sisplunk/",
+        "wlc1": "https://10.84.14.13/",
+        "wlc2": "https://10.84.14.11/",
+        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "ise": "#",
+        "river bed1": "https://10.84.1.43/",
+        "river bed2": "https://10.84.1.44/"
+      }
+    },
+    {
+      "name": "Grande",
+      "code": "MY1137",
+      "links": {
+        "dnac": "#",
+        "cvp": "https://my1137cvp/",
+        "sdwan": "#",
+        "splunk": "https://pgsplunk/",
+        "wlc1": "https://10.86.36.15/",
+        "wlc2": "https://10.86.36.13/",
+        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Mini Grande",
+      "code": "MY1108",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "https://pgsplunk/",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "https://my1108ise/",
+        "river bed": "https://10.85.131.34/"
+      }
+    }
+  ],
+  "Singapore": [
+    {
+      "name": "Singapore - Fab10N/A",
+      "code": "SG624",
+      "links": {
+        "dnac": "https://sg624-dnac01/",
+        "cvp": "https://f10ncvp/",
+        "sdwan": "#",
+        "splunk": "https://fssplunk/",
+        "wlc1": "https://10.194.164.7/",
+        "wlc2": "https://10.195.64.13/",
+        "wlc3": "https://10.195.64.12/",
+        "netscout": "#",
+        "ise1": "https://sg624ise/",
+        "ise2": "https://sg624aise/",
+        "river bed": "https://10.193.208.20/"
+      }
+    },
+    {
+      "name": "Singapore-SFG",
+      "code": "SG834",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "https://sisplunk/",
+        "wlc": "#",
+        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Singapore - Fab10W",
+      "code": "SG211",
+      "links": {
+        "dnac": "https://sg211-dnac01/",
+        "cvp": "https://f10wcvp/",
+        "sdwan": "#",
+        "splunk": "https://tssplunk/",
+        "wlc1": "https://172.25.15.14/",
+        "wlc2": "https://172.25.15.13/",
+        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "ise": "https://sg211ise/",
+        "river bed": "https://172.25.41.13/"
+      }
+    },
+    {
+      "name": "Singapore - MSB",
+      "code": "SG209",
+      "links": {
+        "dnac": "https://sg209-b1mr5y-dnac01/",
+        "cvp": "https://sg209cvp/",
+        "sdwan": "#",
+        "splunk": "https://sisplunk/",
+        "wlc1": "https://10.160.172.14/",
+        "wlc2": "https://10.160.172.15/",
+        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "ise": "https://sg209ise/",
+        "river bed": "https://10.160.44.56/"
+      }
+    }
+  ],
+  "Asia/Taiwan": [
+    {
+      "name": "Taoyuan- Fab11",
+      "code": "TW737",
+      "links": {
+        "dnac": "https://TW737-DNAC01/",
+        "cvp": "https://tw737cvp/",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc1": "https://10.98.2.87/",
+        "wlc2": "https://10.98.2.86/",
+        "netscout": "#",
+        "ise": "https://fab11ise/",
+        "river bed": "https://10.98.18.90/"
+      }
+    },
+    {
+      "name": "Taichung-FAB16",
+      "code": "TW901",
+      "links": {
+        "dnac": "https://tw901-dnac01/",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc1": "https://10.20.8.16/",
+        "wlc2": "https://10.20.8.15/",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Taichung",
+      "code": "TW1081",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Taichung-MTB",
+      "code": "TW555",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Hsinchu",
+      "code": "TW1008",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    }
+  ],
+  "Equinix DC": [
+    {
+      "name": "Equinix FR2",
+      "code": "DE1107",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Equinix ML5",
+      "code": "DE1109",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Equinix SE2",
+      "code": "US1079",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Equinix SG2",
+      "code": "SG1082",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Equinix SV5",
+      "code": "US1105",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Equinix TY8",
+      "code": "JP1113",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    }
+  ],
+  "France": [
+    {
+      "name": "France Paris",
+      "code": "FR1133",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.181.196.15/"
+      }
+    }
+  ],
+  "Germany": [
+    {
+      "name": "Germany",
+      "code": "DE921",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.181.30.83/"
+      }
+    },
+    {
+      "name": "Munich - Leopoldstrasse",
+      "code": "DE974",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.181.40.8/"
+      }
+    }
+  ],
+  "Italy": [
+    {
+      "name": "Arzano",
+      "code": "IT805",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Avezzano",
+      "code": "IT1111",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "#"
+      }
+    },
+    {
+      "name": "Vimercate GB1",
+      "code": "IT1046",
+      "links": {
+        "dnac": "#",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "#",
+        "ise": "#",
+        "river bed": "https://10.54.80.7/"
+      }
+    }
+  ]
+};
 
         // Tool icons mapping
-        const toolIcons = {
-            dnac: "fas fa-network-wired",
-            cvp: "fas fa-phone-alt",
-            sdwan: "fas fa-wifi",
-            wlc: "fas fa-broadcast-tower",
-            splunk: "fas fa-chart-bar"
-        };
+      // Tool icons mapping
+// Tool icons mapping with custom images
+const toolIcons = {
+    dnac: '<img src="dnac.png" class="custom-icon">',
+    cvp: '<img src="cvp.png" class="custom-icon">',
+    sdwan: '<img src="wan.png" class="custom-icon">',
+    wlc: '<img src="wlc.png" class="custom-icon">',
+    splunk: '<img src="splunk.png" class="custom-icon">',
+    netscout: '<img src="nets.png" class="custom-icon">',
+    ise: '<img src="ise.png" class="custom-icon">',
+    "river bed": '<img src="river.png" class="custom-icon">',
+    "river bed1": '<img src="river.png" class="custom-icon">',
+    "river bed2": '<img src="river.png" class="custom-icon">',
+    "river bed3": '<img src="river.png" class="custom-icon">',
+    ise1: '<img src="ise.png" class="custom-icon">',
+    ise2: '<img src="ise.png" class="custom-icon">',
+    wlc1: '<img src="wlc.png" class="custom-icon">',
+    wlc2: '<img src="wlc.png" class="custom-icon">',
+    wlc3: '<img src="wlc.png" class="custom-icon">'
+};
 
         // Tool colors mapping
-        const toolColors = {
-            dnac: "#3498db",
-            cvp: "#2ecc71",
-            sdwan: "#9b59b6",
-            wlc: "#e74c3c",
-            splunk: "#f39c12"
-        };
-
+        // Tool colors mapping
+const toolColors = {
+    dnac: "#3498db",
+    cvp: "#2ecc71",
+    sdwan: "#9b59b6",
+    wlc: "#e74c3c",
+    splunk: "#f39c12",
+    netscout: "#1abc9c",
+    ise: "#e67e22",
+    "river bed": "#34495e",
+    "river bed1": "#34495e",
+    "river bed2": "#34495e",
+    "river bed3": "#34495e",
+    ise1: "#e67e22",
+    ise2: "#e67e22",
+    wlc1: "#e74c3c",
+    wlc2: "#e74c3c",
+    wlc3: "#e74c3c"
+};
         // Current state
         let currentTool = "all";
         let searchQuery = "";
@@ -565,33 +1370,33 @@
         }
 
         // Create site card HTML
-        function createSiteCard(site) {
-            let linksHTML = '';
-            
-            for (const [tool, url] of Object.entries(site.links)) {
-                if (currentTool === 'all' || currentTool === tool) {
-                    linksHTML += `
-                        <a href="${url}" target="_blank" class="site-link" style="border-left: 3px solid ${toolColors[tool]}">
-                            <i class="${toolIcons[tool]}"></i>
-                            ${tool.toUpperCase()}
-                        </a>
-                    `;
-                }
-            }
-            
-            return `
-                <div class="site-card">
-                    <div class="site-header">
-                        <div class="site-name">${site.name}</div>
-                        <div class="site-code">${site.code}</div>
-                    </div>
-                    <div class="site-links">
-                        ${linksHTML}
-                    </div>
-                </div>
+       // Create site card HTML
+function createSiteCard(site) {
+    let linksHTML = '';
+    
+    for (const [tool, url] of Object.entries(site.links)) {
+        if (currentTool === 'all' || currentTool === tool) {
+            linksHTML += `
+                <a href="${url}" target="_blank" class="site-link" style="border-left: 3px solid ${toolColors[tool]}">
+                    ${toolIcons[tool]}
+                    ${tool.toUpperCase()}
+                </a>
             `;
         }
-
+    }
+    
+    return `
+        <div class="site-card">
+            <div class="site-header">
+                <div class="site-name">${site.name}</div>
+                <div class="site-code">${site.code}</div>
+            </div>
+            <div class="site-links">
+                ${linksHTML}
+            </div>
+        </div>
+    `;
+}
         // Set up event listeners
         function setupEventListeners() {
             // Theme switcher
@@ -632,6 +1437,4 @@
         document.addEventListener('DOMContentLoaded', initDashboard);
     </script>
 </body>
-
 </html>
-
