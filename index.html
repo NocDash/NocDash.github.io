@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Micron Global Infrastructure Site Dashboard</title>
-<meta property="og:image" content="image.png">
-
-<!-- Browser tab icon -->
-<link rel="icon" type="image/png" href="image.png">
+  
+    <!-- Social preview (for link sharing) -->
+    <meta property="og:image" content="image.png">
+  
+    <!-- Browser tab icon (favicon) -->
+    <link rel="icon" href="mic.jpg" type="image/png">
+    <link rel="shortcut icon" href="mic.jpg" type="image/png">
+  
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 
+  </head>
+  
 
     <style>
         :root {
@@ -41,6 +47,31 @@
     width: 30px;
     height: 30px;
     object-fit: contain;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  animation: smoothBounceIn 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+
+  transform-origin: center;
+}
+
+@keyframes smoothBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.02);
+  }
+  80% {
+    transform: translateY(2px) scale(0.98);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
 }
 
 .tab .custom-icon {
@@ -372,7 +403,7 @@
     <div class="container">
         <header>
             <div class="logo">
-                <i class="fas fa-globe-americas"></i>
+              <img src="earth.png" class="custom-icon">
                 <h1>Micron Global Infrastructure Dashboard</h1>
             </div>
             <div class="theme-toggle">
@@ -391,7 +422,7 @@
 
     <div class="tabs">
     <div class="tab active" data-tool="all">
-        <i class="fas fa-th-large"></i>
+      <img src="wrench.png" class="custom-icon">
         All Tools
     </div>
     <div class="tab" data-tool="dnac">
@@ -422,7 +453,7 @@
         <img src="ise.png" class="custom-icon">
         ISE
     </div>
-    <div class="tab" data-tool="river bed">
+    <div class="tab" data-tool="riverbed">
         <img src="river.png" class="custom-icon">
         RIVERBED
     </div>
@@ -446,28 +477,28 @@
       "name": "Allen",
       "code": "US1176",
       "links": {
-        "dnac": "#",
+        "dnac": "https://us1090-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.118.9.11/"
+        "riverbed": "https://10.118.9.11/"
       }
     },
     {
       "name": "Austin",
       "code": "US977",
       "links": {
-        "dnac": "#",
+        "dnac": "https://us1090-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.114.66.52/"
+        "riverbed": "https://10.114.66.52/"
       }
     },
     {
@@ -479,25 +510,25 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "https://10.105.170.11/",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "https://us1ise/",
-        "river bed1": "https://10.109.66.250/",
-        "river bed2": "https://10.2.32.45/",
-        "river bed3": "https://10.109.66.252/"
+        "riverbed1": "https://10.109.66.250/",
+        "riverbed2": "https://10.2.32.45/",
+        "riverbed3": "https://10.109.66.252/"
       }
     },
     {
       "name": "Folsom",
       "code": "US781",
       "links": {
-        "dnac": "#",
+        "dnac": "https://us1090-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "https://10.102.129.4/",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.102.105.6/"
+        "riverbed": "https://10.102.105.6/"
       }
     },
     {
@@ -509,9 +540,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -523,39 +554,55 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
       "name": "Longmont",
       "code": "US877",
       "links": {
-        "dnac": "#",
+        "dnac": "https://us1090-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc1": "https://10.107.51.129/",
         "wlc2": "https://10.107.51.130/",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.107.51.181/"
+        "riverbed": "https://10.107.51.181/"
       }
     },
     {
       "name": "New Longmont",
       "code": "US1306",
       "links": {
-        "dnac": "#",
+        "dnac": "https://us1090-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
+      
+    },
+    {
+      "name": "Richardson",
+      "code": "US1324",
+      "links": {
+        "dnac": "https://us1090-dnac01/",
+        "cvp": "#",
+        "sdwan": "#",
+        "splunk": "#",
+        "wlc": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
+        "ise": "#",
+        "riverbed": "#"
+      }
+      
     },
     {
       "name": "MTI - Washington DC",
@@ -566,9 +613,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -581,52 +628,39 @@
         "splunk": "https://masplunk/",
         "wlc1": "https://10.110.33.26/",
         "wlc2": "https://10.110.33.27/",
-        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed1": "https://10.110.60.198/",
-        "river bed2": "https://10.110.60.199/"
+        "riverbed1": "https://10.110.60.198/",
+        "riverbed2": "https://10.110.60.199/"
       }
     },
-    {
-      "name": "Meridian",
-      "code": "US259",
-      "links": {
-        "dnac": "#",
-        "cvp": "#",
-        "sdwan": "#",
-        "splunk": "#",
-        "wlc": "#",
-        "netscout": "#",
-        "ise": "#",
-        "river bed": "#"
-      }
-    },
+   
     {
       "name": "Minneapolis",
       "code": "US334",
       "links": {
-        "dnac": "#",
+        "dnac": "https://us1090-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.113.16.75/"
+        "riverbed": "https://10.113.16.75/"
       }
     },
     {
       "name": "Novi",
       "code": "US1088",
       "links": {
-        "dnac": "#",
+        "dnac": "https://us1090-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.115.5.14/"
+        "riverbed": "https://10.115.5.14/"
       }
     },
     {
@@ -638,10 +672,10 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "https://10.101.22.132/",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed1": "https://10.101.64.54/",
-        "river bed2": "https://10.101.2.50/"
+        "riverbed1": "https://10.101.64.54/",
+        "riverbed2": "https://10.101.2.50/"
       }
     }
   ],
@@ -650,14 +684,14 @@
       "name": "Mexico",
       "code": "MX1323",
       "links": {
-        "dnac": "#",
+        "dnac": "https://us1090-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     }
   ],
@@ -666,14 +700,14 @@
       "name": "Shanghai",
       "code": "CN1087",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -685,9 +719,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -699,9 +733,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.158.68.20/"
+        "riverbed": "https://10.158.68.20/"
       }
     },
     {
@@ -714,10 +748,10 @@
         "splunk": "https://xasplunk/",
         "wlc1": "https://10.167.198.11/",
         "wlc2": "https://10.167.198.12/",
-        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "https://cn569ise/",
-        "river bed1": "https://10.167.71.116/",
-        "river bed2": "https://10.167.71.117/"
+        "riverbed1": "https://10.167.71.116/",
+        "riverbed2": "https://10.167.71.117/"
       }
     }
   ],
@@ -726,44 +760,44 @@
       "name": "Sanand",
       "code": "IN1316",
       "links": {
-        "dnac": "https://in1136-dnac01/",
+        "dnac": "https://us1090-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "https://snsplunk/",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
       "name": "Bengaluru Cessna",
       "code": "IN1092",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "https://10.71.133.5/",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.71.134.33/"
+        "riverbed": "https://10.71.134.33/"
       }
     },
     {
       "name": "Hyderabad - Phoenix Aquila Incubation",
       "code": "IN1136",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc1": "https://10.68.122.1/",
         "wlc2": "https://10.75.138.12/",
         "wlc3": "https://10.75.138.13/",
-        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     }
   ],
@@ -778,25 +812,25 @@
         "splunk": "#",
         "wlc1": "https://10.165.2.8/",
         "wlc2": "https://10.165.2.7/",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed1": "https://10.165.0.45/",
-        "river bed2": "https://10.165.0.46/"
+        "riverbed1": "https://10.165.0.45/",
+        "riverbed2": "https://10.165.0.46/"
       }
     },
     {
       "name": "Hashimoto",
       "code": "JP902",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed1": "https://172.18.188.4/",
-        "river bed2": "https://172.18.188.7/"
+        "riverbed1": "https://172.18.188.4/",
+        "riverbed2": "https://172.18.188.7/"
       }
     },
     {
@@ -809,80 +843,80 @@
         "splunk": "https://hisplunk/",
         "wlc1": "https://10.168.25.6/",
         "wlc2": "https://10.168.25.11/",
-        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "https://jp900ise/",
-        "river bed1": "https://172.16.116.12/",
-        "river bed2": "https://10.168.232.72/"
+        "riverbed1": "https://172.16.116.12/",
+        "riverbed2": "https://10.168.232.72/"
       }
     },
     {
       "name": "Kamata",
       "code": "JP545",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
       "name": "Narita",
       "code": "JP937",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
       "name": "Osaka",
       "code": "JP578",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.162.65.5/"
+        "riverbed": "https://10.162.65.5/"
       }
     },
     {
       "name": "Sagamihara",
       "code": "JP960",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
       "name": "Shinagawa",
       "code": "JP1075",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.163.240.20/"
+        "riverbed": "https://10.163.240.20/"
       }
     }
   ],
@@ -896,9 +930,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     }
   ],
@@ -913,10 +947,10 @@
         "splunk": "https://sisplunk/",
         "wlc1": "https://10.84.14.13/",
         "wlc2": "https://10.84.14.11/",
-        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed1": "https://10.84.1.43/",
-        "river bed2": "https://10.84.1.44/"
+        "riverbed1": "https://10.84.1.43/",
+        "riverbed2": "https://10.84.1.44/"
       }
     },
     {
@@ -929,9 +963,9 @@
         "splunk": "https://pgsplunk/",
         "wlc1": "https://10.86.36.15/",
         "wlc2": "https://10.86.36.13/",
-        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -943,9 +977,9 @@
         "sdwan": "#",
         "splunk": "https://pgsplunk/",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "https://my1108ise/",
-        "river bed": "https://10.85.131.34/"
+        "riverbed": "https://10.85.131.34/"
       }
     }
   ],
@@ -961,10 +995,10 @@
         "wlc1": "https://10.194.164.7/",
         "wlc2": "https://10.195.64.13/",
         "wlc3": "https://10.195.64.12/",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise1": "https://sg624ise/",
         "ise2": "https://sg624aise/",
-        "river bed": "https://10.193.208.20/"
+        "riverbed": "https://10.193.208.20/"
       }
     },
     {
@@ -976,9 +1010,9 @@
         "sdwan": "#",
         "splunk": "https://sisplunk/",
         "wlc": "#",
-        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -991,9 +1025,9 @@
         "splunk": "https://tssplunk/",
         "wlc1": "https://172.25.15.14/",
         "wlc2": "https://172.25.15.13/",
-        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "https://sg211ise/",
-        "river bed": "https://172.25.41.13/"
+        "riverbed": "https://172.25.41.13/"
       }
     },
     {
@@ -1006,9 +1040,9 @@
         "splunk": "https://sisplunk/",
         "wlc1": "https://10.160.172.14/",
         "wlc2": "https://10.160.172.15/",
-        "netscout": "https://fslnetscoutglobal01:8080/console/",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "https://sg209ise/",
-        "river bed": "https://10.160.44.56/"
+        "riverbed": "https://10.160.44.56/"
       }
     }
   ],
@@ -1023,9 +1057,9 @@
         "splunk": "#",
         "wlc1": "https://10.98.2.87/",
         "wlc2": "https://10.98.2.86/",
-        "netscout": "#",
-        "ise": "https://fab11ise/",
-        "river bed": "https://10.98.18.90/"
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
+        "ise": "https://tw737ise/",
+        "riverbed": "https://10.98.18.90/"
       }
     },
     {
@@ -1038,9 +1072,9 @@
         "splunk": "#",
         "wlc1": "https://10.20.8.16/",
         "wlc2": "https://10.20.8.15/",
-        "netscout": "#",
-        "ise": "#",
-        "river bed": "#"
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
+        "ise": "https://fab16ise/",
+        "riverbed": "#"
       }
     },
     {
@@ -1052,9 +1086,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -1066,9 +1100,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -1080,9 +1114,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     }
   ],
@@ -1096,9 +1130,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -1110,9 +1144,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -1124,9 +1158,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -1138,9 +1172,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -1152,9 +1186,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
@@ -1166,9 +1200,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     }
   ],
@@ -1177,14 +1211,14 @@
       "name": "France Paris",
       "code": "FR1133",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.181.196.15/"
+        "riverbed": "https://10.181.196.15/"
       }
     }
   ],
@@ -1193,14 +1227,14 @@
       "name": "Germany",
       "code": "DE921",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.181.30.83/"
+        "riverbed": "https://10.181.30.83/"
       }
     },
     {
@@ -1212,9 +1246,9 @@
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.181.40.8/"
+        "riverbed": "https://10.181.40.8/"
       }
     }
   ],
@@ -1223,42 +1257,42 @@
       "name": "Arzano",
       "code": "IT805",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
       "name": "Avezzano",
       "code": "IT1111",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "#"
+        "riverbed": "#"
       }
     },
     {
       "name": "Vimercate GB1",
       "code": "IT1046",
       "links": {
-        "dnac": "#",
+        "dnac": "https://in1136-dnac01/",
         "cvp": "#",
         "sdwan": "#",
         "splunk": "#",
         "wlc": "#",
-        "netscout": "#",
+        "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "#",
-        "river bed": "https://10.54.80.7/"
+        "riverbed": "https://10.54.80.7/"
       }
     }
   ]
@@ -1275,10 +1309,10 @@ const toolIcons = {
     splunk: '<img src="splunk.png" class="custom-icon">',
     netscout: '<img src="nets.png" class="custom-icon">',
     ise: '<img src="ise.png" class="custom-icon">',
-    "river bed": '<img src="river.png" class="custom-icon">',
-    "river bed1": '<img src="river.png" class="custom-icon">',
-    "river bed2": '<img src="river.png" class="custom-icon">',
-    "river bed3": '<img src="river.png" class="custom-icon">',
+    "riverbed": '<img src="river.png" class="custom-icon">',
+    "riverbed1": '<img src="river.png" class="custom-icon">',
+    "riverbed2": '<img src="river.png" class="custom-icon">',
+    "riverbed3": '<img src="river.png" class="custom-icon">',
     ise1: '<img src="ise.png" class="custom-icon">',
     ise2: '<img src="ise.png" class="custom-icon">',
     wlc1: '<img src="wlc.png" class="custom-icon">',
@@ -1296,10 +1330,10 @@ const toolColors = {
     splunk: "#f39c12",
     netscout: "#1abc9c",
     ise: "#e67e22",
-    "river bed": "#34495e",
-    "river bed1": "#34495e",
-    "river bed2": "#34495e",
-    "river bed3": "#34495e",
+    "riverbed": "#34495e",
+    "riverbed1": "#34495e",
+    "riverbed2": "#34495e",
+    "riverbed3": "#34495e",
     ise1: "#e67e22",
     ise2: "#e67e22",
     wlc1: "#e74c3c",
@@ -1438,5 +1472,4 @@ function createSiteCard(site) {
     </script>
 </body>
 </html>
-
 
