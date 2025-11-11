@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Micron Global Infrastructure Site Dashboard</title>
+    <title>GNOC Site Links Dashboard</title>
   
     <meta property="og:image" content="image.png">
   
     <link rel="icon" href="fav.png" type="image/png">
     <link rel="shortcut icon" href="fav.png" type="image/png">
+  
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
@@ -626,6 +627,73 @@
     background: linear-gradient(to right, var(--border-color) 8%, var(--card-color) 18%, var(--border-color) 33%);
     background-size: 800px 104px;
 }
+/* Section styling */
+section {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    background: var(--primary-color); /* This will match your theme */
+    overflow: hidden;
+}
+
+/* Wave base styling */
+/* Wave base styling */
+section .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(wave.png);
+    background-size: 1000px 100px;
+    opacity: 0.7; /* Add this to make waves blend better */
+}
+
+/* Wave animations */
+section .wave.wave1 {
+    animation: animate 30s linear infinite;
+    z-index: 1000;
+    opacity: 1  ;
+    animation-delay: 0s;
+    bottom: 0;
+}
+section .wave.wave2 {
+    animation: animate2 15s linear infinite;
+    z-index: 999;
+    opacity: 0.5  ;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+section .wave.wave3 {
+    animation: animate 30s linear infinite;
+    z-index: 998;
+    opacity: 0.2  ;
+    animation-delay: -2s;
+    bottom: 15;
+}
+section .wave.wave4 {
+    animation: animate2 5s linear infinite;
+    z-index: 997;
+    opacity: 0.7  ;
+    animation-delay: -5s;
+    bottom: 20px;
+}
+@keyframes animate {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+@keyframes animate2 {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -1000px;
+    }
+}
     </style>
       <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -636,8 +704,9 @@
         <header>
             <div class="logo">
               <img src="earth.png" class="custom-icon">
-                <h1>Micron Global Infrastructure Dashboard</h1>
+                <h1>GNOC Site Links Dashboard</h1>
             </div>
+            
             <div class="theme-toggle">
                 <span>Dark Mode</span>
                 <label class="switch">
@@ -715,8 +784,20 @@
         </div>
 
         <footer>
-         <div class="visme_d" data-title="Responsive Contact Form" data-url="dwoqqpo1-responsive-contact-form" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="153570"></div><script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
-        </footer>
+          
+          <section>
+          
+              <div class="wave wave1"></div>
+              <div class="wave wave2"></div>
+              <div class="wave wave3"></div>
+              <div class="wave wave4"></div>
+              <br/>
+              <div style="text-align: center; padding: 20px 0; color: white; font-size: 0.9rem;">
+                © 2025 Micron. All Rights Reserved.
+            </div>
+          </section>
+          
+      </footer>
     </div>
 
     <script>
@@ -730,7 +811,7 @@
       "links": {
         "dnac": "https://us1090-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -744,7 +825,7 @@
       "links": {
         "dnac": "https://us1090-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -758,7 +839,7 @@
       "links": {
         "dnac": "https://us1-dnac02/",
         "cvp": "https://us1-b17-cvp1/cv/",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "https://10.105.170.11/",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -774,7 +855,7 @@
       "links": {
         "dnac": "https://us1090-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "https://10.102.129.4/",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -788,7 +869,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -802,7 +883,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -816,7 +897,7 @@
       "links": {
         "dnac": "https://us1090-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc1": "https://10.107.51.129/",
         "wlc2": "https://10.107.51.130/",
@@ -831,7 +912,7 @@
       "links": {
         "dnac": "https://us1090-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -846,7 +927,7 @@
       "links": {
         "dnac": "https://us1090-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -861,7 +942,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -875,7 +956,7 @@
       "links": {
         "dnac": "https://us439-dnac01/",
         "cvp": "https://us439-arista-cvp1/",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "https://masplunk/",
         "wlc1": "https://10.110.33.26/",
         "wlc2": "https://10.110.33.27/",
@@ -892,7 +973,7 @@
       "links": {
         "dnac": "https://us1090-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -906,7 +987,7 @@
       "links": {
         "dnac": "https://us1090-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -920,7 +1001,7 @@
       "links": {
         "dnac": "https://us1090-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "https://10.101.22.132/",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -937,7 +1018,7 @@
       "links": {
         "dnac": "https://us1090-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -953,7 +1034,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -967,7 +1048,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -981,7 +1062,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -993,9 +1074,9 @@
       "name": "Xian",
       "code": "CN569",
       "links": {
-        "dnac": "#",
+        "dnac": "https://cn569-dnac01/",
         "cvp": "https://cn569-b1mr2-cvp1/",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "https://xasplunk/",
         "wlc1": "https://10.167.198.11/",
         "wlc2": "https://10.167.198.12/",
@@ -1011,9 +1092,9 @@
       "name": "Sanand",
       "code": "IN1316",
       "links": {
-        "dnac": "https://us1090-dnac01/",
+        "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "https://snsplunk/",
         "wlc1": "https://10.75.138.12/",
         "wlc2": "https://10.75.138.13/",
@@ -1028,7 +1109,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "https://10.71.133.5/",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1042,7 +1123,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc1": "https://10.68.122.1/",
         "wlc2": "https://10.75.138.12/",
@@ -1060,7 +1141,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc1": "https://10.165.2.8/",
         "wlc2": "https://10.165.2.7/",
@@ -1076,7 +1157,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1091,7 +1172,7 @@
       "links": {
         "dnac": "https://jp900-dnac01/",
         "cvp": "https://jp900-ba1mr1-cvp1/",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "https://hisplunk/",
         "wlc1": "https://10.168.25.6/",
         "wlc2": "https://10.168.25.11/",
@@ -1107,7 +1188,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1121,7 +1202,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1135,7 +1216,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1149,7 +1230,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1163,7 +1244,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1179,7 +1260,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1193,9 +1274,9 @@
       "name": "Muar",
       "code": "MY804",
       "links": {
-        "dnac": "#",
+        "dnac": "https://sg209-b1mr5y-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "https://sisplunk/",
         "wlc1": "https://10.84.14.13/",
         "wlc2": "https://10.84.14.11/",
@@ -1211,7 +1292,7 @@
       "links": {
         "dnac": "#",
         "cvp": "https://my1137cvp/",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "https://pgsplunk/",
         "wlc1": "https://10.86.36.15/",
         "wlc2": "https://10.86.36.13/",
@@ -1226,7 +1307,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "https://pgsplunk/",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1242,14 +1323,14 @@
       "links": {
         "dnac": "https://sg624-dnac01/",
         "cvp": "https://f10ncvp/",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "https://fssplunk/",
         "wlc1": "https://10.194.164.7/",
         "wlc2": "https://10.195.64.13/",
         "wlc3": "https://10.195.64.12/",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
-        "ise F10n": "https://sg624ise/",
-        "ise f10a": "https://sg624aise/",
+        "is1": "https://sg624ise/",
+        "ise2": "https://sg624aise/",
         "riverbed": "https://10.193.208.20/"
       }
     },
@@ -1259,7 +1340,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "https://sisplunk/",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1273,7 +1354,7 @@
       "links": {
         "dnac": "https://sg211-dnac01/",
         "cvp": "https://f10wcvp/",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "https://tssplunk/",
         "wlc1": "https://172.25.15.14/",
         "wlc2": "https://172.25.15.13/",
@@ -1288,7 +1369,7 @@
       "links": {
         "dnac": "https://sg209-b1mr5y-dnac01/",
         "cvp": "https://sg209cvp/",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "https://sisplunk/",
         "wlc1": "https://10.160.172.14/",
         "wlc2": "https://10.160.172.15/",
@@ -1305,7 +1386,7 @@
       "links": {
         "dnac": "https://TW737-DNAC01/",
         "cvp": "https://tw737cvp/",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc1": "https://10.98.2.87/",
         "wlc2": "https://10.98.2.86/",
@@ -1320,7 +1401,7 @@
       "links": {
         "dnac": "https://tw901-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc1": "https://10.20.8.16/",
         "wlc2": "https://10.20.8.15/",
@@ -1333,9 +1414,9 @@
       "name": "Taichung",
       "code": "TW1081",
       "links": {
-        "dnac": "#",
+        "dnac": "https://tw901-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1347,10 +1428,10 @@
       "name": "Taichung-MTB",
       "code": "TW555",
       "links": {
-        "dnac": "#",
+        "dnac": "https://tw901-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
-        "splunk": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
+        "splunk": "https://tbsplunk/",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
         "ise": "https://fab16ise/",
@@ -1363,7 +1444,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1379,7 +1460,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1393,7 +1474,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1407,7 +1488,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1421,7 +1502,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1435,7 +1516,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1449,7 +1530,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1465,7 +1546,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1481,7 +1562,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1495,7 +1576,7 @@
       "links": {
         "dnac": "#",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1511,7 +1592,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1525,7 +1606,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1539,7 +1620,7 @@
       "links": {
         "dnac": "https://in1136-dnac01/",
         "cvp": "#",
-        "sdwan": "#",
+        "sdwan": "https://micron.sdwan.cisco.com/",
         "splunk": "#",
         "wlc": "#",
         "netscout": "http://fslnetscoutglobal01:8080/console/",
@@ -1856,5 +1937,3 @@ function createSiteCard(site) {
     </script>
 </body>
 </html>
-
-
